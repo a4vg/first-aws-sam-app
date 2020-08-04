@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("source-map-support/register");
+const cdk = require("@aws-cdk/core");
+const pipeline_stack_1 = require("../lib/pipeline-stack");
+if (!process.env.GITHUB_TOKEN) {
+    console.log("No Github Token present");
+}
+const app = new cdk.App();
+new pipeline_stack_1.PipelineStack(app, 'first-aws-sam-app-cicd', {
+    githubToken: process.env.GITHUB_TOKEN || ""
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGlwZWxpbmUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJwaXBlbGluZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFDQSx1Q0FBcUM7QUFDckMscUNBQXFDO0FBQ3JDLDBEQUFzRDtBQUV0RCxJQUFJLENBQUMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxZQUFZLEVBQUU7SUFDN0IsT0FBTyxDQUFDLEdBQUcsQ0FBQyx5QkFBeUIsQ0FBQyxDQUFDO0NBQ3hDO0FBRUQsTUFBTSxHQUFHLEdBQUcsSUFBSSxHQUFHLENBQUMsR0FBRyxFQUFFLENBQUM7QUFDMUIsSUFBSSw4QkFBYSxDQUFDLEdBQUcsRUFBRSx3QkFBd0IsRUFBRTtJQUMvQyxXQUFXLEVBQUUsT0FBTyxDQUFDLEdBQUcsQ0FBQyxZQUFZLElBQUksRUFBRTtDQUM1QyxDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIjIS91c3IvYmluL2VudiBub2RlXG5pbXBvcnQgJ3NvdXJjZS1tYXAtc3VwcG9ydC9yZWdpc3Rlcic7XG5pbXBvcnQgKiBhcyBjZGsgZnJvbSAnQGF3cy1jZGsvY29yZSc7XG5pbXBvcnQgeyBQaXBlbGluZVN0YWNrIH0gZnJvbSAnLi4vbGliL3BpcGVsaW5lLXN0YWNrJztcblxuaWYgKCFwcm9jZXNzLmVudi5HSVRIVUJfVE9LRU4pIHtcbiAgY29uc29sZS5sb2coXCJObyBHaXRodWIgVG9rZW4gcHJlc2VudFwiKTtcbn1cblxuY29uc3QgYXBwID0gbmV3IGNkay5BcHAoKTtcbm5ldyBQaXBlbGluZVN0YWNrKGFwcCwgJ2ZpcnN0LWF3cy1zYW0tYXBwLWNpY2QnLCB7XG4gIGdpdGh1YlRva2VuOiBwcm9jZXNzLmVudi5HSVRIVUJfVE9LRU4gfHwgXCJcIlxufSk7XG4iXX0=
