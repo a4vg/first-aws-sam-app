@@ -1,3 +1,7 @@
+# Ignore build artifacts
+.aws-sam/
+packaged.yaml
+
 # MacOS
 .DS_Store
 
