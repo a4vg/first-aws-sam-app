@@ -3,7 +3,7 @@ phases:
   install:
     runtime-versions:
       nodejs: 12
-      java: openjdk11
+      java: corretto11
     commands:
       # Install packages or any pre-reqs in this phase.
       # Upgrading SAM CLI to latest version
