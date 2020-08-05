@@ -24,8 +24,7 @@ phases:
       - cd ..
       - cd hello-quarkus
       - java -version
-      # - mvn clean package
-      - mvn package -Pnative
+      - mvn clean package
       - cd ..
       - sam build
 
