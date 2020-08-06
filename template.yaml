@@ -17,35 +17,35 @@ Resources:
       CodeUri: hello-world/
       Handler: app.lambdaHandler
       Runtime: nodejs12.x
-      AutoPublishAlias: live
-      DeploymentPreference:
-        Type: Canary10Percent5Minutes
-        Alarms:
-          - !Ref CanaryErrorsAlarm
+      # AutoPublishAlias: live
+      # DeploymentPreference:
+      #   Type: Canary10Percent5Minutes
+      #   Alarms:
+      #     - !Ref CanaryErrorsAlarm
       Events:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: /hello
             Method: get
-  CanaryErrorsAlarm:
-    Type: AWS::CloudWatch::Alarm
-    Properties:
-      AlarmDescription: Lambda function canary errors
-      ComparisonOperator: GreaterThanThreshold
-      EvaluationPeriods: 2
-      MetricName: Errors
-      Namespace: AWS/Lambda
-      Period: 60
-      Statistic: Sum
-      Threshold: 0
-      Dimensions:
-        - Name: Resource
-          Value: !Sub "${HelloWorldFunction}:live"
-        - Name: FunctionName
-          Value: !Ref HelloWorldFunction
-        - Name: ExecutedVersion
-          Value: !GetAtt HelloWorldFunction.Version.Version
+  # CanaryErrorsAlarm:
+  #   Type: AWS::CloudWatch::Alarm
+  #   Properties:
+  #     AlarmDescription: Lambda function canary errors
+  #     ComparisonOperator: GreaterThanThreshold
+  #     EvaluationPeriods: 2
+  #     MetricName: Errors
+  #     Namespace: AWS/Lambda
+  #     Period: 60
+  #     Statistic: Sum
+  #     Threshold: 0
+  #     Dimensions:
+  #       - Name: Resource
+  #         Value: !Sub "${HelloWorldFunction}:live"
+  #       - Name: FunctionName
+  #         Value: !Ref HelloWorldFunction
+  #       - Name: ExecutedVersion
+  #         Value: !GetAtt HelloWorldFunction.Version.Version
   HelloQuarkusFunction:
     Type: AWS::Serverless::Function
     Properties:
