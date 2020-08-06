@@ -50,7 +50,7 @@ Resources:
   QuarkusApp:
     Type: AWS::Serverless::Application
     Properties:
-      Location: ../hello-quarkus/target/sam.jvm.yaml
+      Location: hello-quarkus/target/sam.jvm.yaml
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
