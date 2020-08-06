@@ -79,7 +79,7 @@ export class PipelineStack extends cdk.Stack {
       stageName: 'Dev',
       actions: [
         new codepipeline_actions.CloudFormationCreateReplaceChangeSetAction({
-          actionName: 'CreateChangeSet',
+          actionName: 'CreateChangeSetJs',
           templatePath: buildOutput.atPath("packaged.yaml"),
           stackName: 'first-aws-sam-app',
           adminPermissions: true,
@@ -87,7 +87,7 @@ export class PipelineStack extends cdk.Stack {
           runOrder: 1
         }),
         new codepipeline_actions.CloudFormationCreateReplaceChangeSetAction({
-          actionName: 'CreateChangeSet',
+          actionName: 'CreateChangeSetQuarkus',
           templatePath: buildOutput.atPath("quarkus-packaged.yaml"),
           stackName: 'first-aws-sam-app',
           adminPermissions: true,
