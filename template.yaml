@@ -46,20 +46,6 @@ Resources:
   #         Value: !Ref HelloWorldFunction
   #       - Name: ExecutedVersion
   #         Value: !GetAtt HelloWorldFunction.Version.Version
-  HelloQuarkusFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: hello-quarkus/
-      Handler: io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest
-      Runtime: java11
-      MemorySize: 512
-      # Policies: "AWSLambdaBasicExecutionRole" # Probably needed
-      Events:
-        HelloQuarkus:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-          Properties:
-            Path: /hello-quarkus
-            Method: post
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function

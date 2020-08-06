@@ -1,1 +1,0 @@
-{"errorType":"Error","errorMessage":"This will cause a deployment rollback","trace":["Error: This will cause a deployment rollback","    at Runtime.exports.lambdaHandler [as handler] (/var/task/app.js:18:11)","    at Runtime.handleOnce (/var/runtime/Runtime.js:66:25)"]}
