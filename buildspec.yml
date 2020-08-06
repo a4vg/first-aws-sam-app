@@ -3,6 +3,7 @@ phases:
   install:
     runtime-versions:
       nodejs: 12
+      java: corretto11
     commands:
       # Install packages or any pre-reqs in this phase.
       # Upgrading SAM CLI to latest version
@@ -21,15 +22,20 @@ phases:
     commands:
       # Use Build phase to build your artifacts (compile, etc.)
       - cd ..
+      - cd hello-quarkus
+      - mvn clean package
+      - cd ..
       - sam build
 
   post_build:
     commands:
       # Use Post-Build for notifications, git tags, upload artifacts to S3
+      - sam package --template-file hello-quarkus/target/sam.jvm.yaml --s3-bucket $PACKAGE_BUCKET --output-template-file quarkus-packaged.yaml
       - sam package --s3-bucket $PACKAGE_BUCKET --output-template-file packaged.yaml
 
 artifacts:
   discard-paths: yes
   files:
     # List of local artifacts that will be passed down the pipeline
+    - quarkus-packaged.yaml
     - packaged.yaml

@@ -11,8 +11,8 @@ public class GreetingTest
 {
     @Test
     public void testJaxrs() {
-        RestAssured.when().get("/hello").then()
+        RestAssured.when().get("/hello-quarkus").then()
                 .contentType("text/plain")
-                .body(equalTo("hello jaxrs"));
+                .body(equalTo("Hello from Quarkus"));
     }
 }
