@@ -46,7 +46,12 @@ Resources:
   #         Value: !Ref HelloWorldFunction
   #       - Name: ExecutedVersion
   #         Value: !GetAtt HelloWorldFunction.Version.Version
-  
+
+  QuarkusApp:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location: ../hello-quarkus/target/sam.jvm.yaml
+
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM

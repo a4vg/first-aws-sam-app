@@ -30,12 +30,10 @@ phases:
   post_build:
     commands:
       # Use Post-Build for notifications, git tags, upload artifacts to S3
-      - sam package --template-file hello-quarkus/target/sam.jvm.yaml --s3-bucket $PACKAGE_BUCKET --output-template-file quarkus-packaged.yaml
       - sam package --s3-bucket $PACKAGE_BUCKET --output-template-file packaged.yaml
 
 artifacts:
   discard-paths: yes
   files:
     # List of local artifacts that will be passed down the pipeline
-    - quarkus-packaged.yaml
     - packaged.yaml
